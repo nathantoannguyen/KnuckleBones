@@ -10,6 +10,11 @@ class KnuckleBones():
         self.score += num
     
     def place_move(self, player: str, diceNum: int, col: int):
+        '''
+        T = Top
+        B = Bottom
+        I used an else statement though
+        '''
         gameboard = self.gameboardTop if player == 'T' else self.gameboardBot
         current_spot = 0
         
