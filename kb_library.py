@@ -40,18 +40,37 @@ class GameUI():
         displays gameboard readable to user
         '''
         for i in range(3-1,-1,-1):
-        	for j in range(3):
-        		print(top[j][i],end=' ')
-        	print(end='\n')
+            for j in range(3):
+                print(top[j][i],end=' ')
+            print()
         
         print('-----')
         
         for i in range(3):
-        	for j in range(3-1,-1,-1):
-        		print(bot[j][i],end=' ')
-        	print(end='\n')
-        
+            for j in range(3-1,-1,-1):
+                print(bot[j][i],end=' ')
+            print()
+
         print('-----')
+        #print()
+        # i think doing this is better for testing purposes
+        # bc it has better readability since the former makes it
+        # hard to distinguish between top and bottom when testing
+        # w multiple moves. up 2 u tho
+
+    def board_full(self, top, bot):
+        '''
+        Returns true if any boards are full.
+        '''
+        def _check_single_gb(gb):
+            for lst in gb:
+                if 0 in lst:
+                    return False
+            return True
+        #oops srry if this is bad formatting but i likey my short circuiting vision.
+        
+        return _check_single_gb(top) or _check_single_gb(bot)
+    
 
     def fullCol(self):
         '''
@@ -62,4 +81,8 @@ class GameUI():
 player1 = KnuckleBones()
 player1.place_move('T',4,2)
 player1.place_move('B',3,2)
+#print(player1.gameboardTop)
+#print(player1.gameboardBot)
 player1.place_move('T',4,2)
+player1.place_move('B',1,3)
+player1.place_move('T',3,2)
