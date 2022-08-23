@@ -22,7 +22,7 @@ class KnuckleBones():
                     return False
             return True
         
-        return _check_single_gb(self.gameboardTop) or _check_single_gb(bot)
+        return _check_single_gb(self.gameboardTop) or _check_single_gb(self.gameBoardBot)
 
     def update_score(self):
         ''' Updates score of both boards. '''
