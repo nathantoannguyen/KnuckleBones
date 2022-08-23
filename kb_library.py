@@ -89,7 +89,7 @@ class GameUI():
         print('-----')
         
         for i in range(3):
-            for j in range(3-1,-1,-1):
+            for j in range(3):
                 print(bot[j][i],end=' ')
             print()
 
