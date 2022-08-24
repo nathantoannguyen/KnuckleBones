@@ -1,3 +1,4 @@
+import kb_lib as kb
 
 class KnuckleBones():
     
@@ -127,7 +128,7 @@ player1 = KnuckleBones()
 player1 = KnuckleBones()
 person = "T"
 while True:
-    dice = rollDie()
+    dice = kb.rollDie()
     print()
     print("it is", person, "turn")
     print("your dice is", dice)
