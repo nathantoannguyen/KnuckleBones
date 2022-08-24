@@ -16,7 +16,6 @@ class KnuckleBones():
         self.scoreTop = 0
         self.scoreBot = 0
     
-    # lol i realized my board full function isnt really a ui thing so i moved it here
     def board_full(self):
         '''
         Returns true if any boards are full.
@@ -27,7 +26,7 @@ class KnuckleBones():
                     return False
             return True
         
-        return _check_single_gb(self.gameboardTop) or _check_single_gb(self.gameBoardBot)
+        return _check_single_gb(self.gameboardTop) or _check_single_gb(self.gameboardBot)
 
     def update_score(self):
         ''' Updates score of both boards. '''
@@ -67,9 +66,9 @@ class KnuckleBones():
     
         gameboard[col-1][current_spot] = diceNum
 
-        # Iterates through opposite board's column list and removes matching dice number and then scoots the other elements up
-        for i in range(len(opposite[col-1])):
-            if opposite[col-1][i] == diceNum:
+        # Fixed bug where it doesn't remove all the dice of the same num
+        for value in opposite[col-1][:]:
+            if value == diceNum:
                 opposite[col-1].remove(diceNum)
                 opposite[col-1].append(0)
         self.update_score()
@@ -116,7 +115,7 @@ class GameUI():
     # the board list and the board score every time
 
 
-
+'''
 player1 = KnuckleBones()
 player1.place_move('T',4,2)
 player1.place_move('B',3,2)
@@ -126,6 +125,25 @@ player1.place_move('T',3,2)
 print(player1.scoreTop)
 print(player1.scoreBot)
 
+player1 = KnuckleBones()
+'''
+
+# eheheh fake game. u can actually play 2 player game except its endless bc i didnt put in game over logic in dis
+player1 = KnuckleBones()
+person = "T"
+while True:
+    dice = rollDie()
+    print()
+    print("it is", person, "turn")
+    print("your dice is", dice)
+    col = int(input("what col: "))
+    player1.place_move(person, dice, col)
+    if person == "T":
+        person = "B"
+    else:
+        person = "T"
+    print("top score is", player1.scoreTop)
+    print("bot score is", player1.scoreBot)
 
 
 #   Below is example scoreboard from article linked in readme, using this 2 test the calculating score
