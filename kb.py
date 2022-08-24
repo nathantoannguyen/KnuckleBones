@@ -1,9 +1,4 @@
 
-import random
-
-def rollDie() -> int:
-    return random.randint(1,6)
-
 class KnuckleBones():
     
     def __init__(self):
