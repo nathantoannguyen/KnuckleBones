@@ -68,7 +68,8 @@ class KnuckleBones():
                 opposite[col-1].remove(diceNum)
                 opposite[col-1].append(0)
         self.update_score()
-
+        
+        # oops move this outside function because this is bad organization
         GameUI.show_gb(self, self.gameboardTop, self.gameboardBot)
         # TODO: after each move, 
         #       - update score
