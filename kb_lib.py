@@ -8,7 +8,10 @@ def rollDie() -> int:
     return dieNum
 
 def invalidInput():
-    print("Please enter a valid column number of 1, 2, or 3.\n")
+    print("Please enter a valid column number of 1, 2, or 3.")
+    
+def fullColMsg():
+    print("Column is full. Please try placing a die in another column.")
 
 def promptMove() -> int:
     '''
@@ -16,7 +19,7 @@ def promptMove() -> int:
     :return: the col number if valid (1-3, int) and random die number
     '''
     while True:
-        print("Please input which column (1-3) from left to right you would like to place your die in: ")
+        print("Enter which column (1-3) from left to right you would like to place your die in: ")
         col = input()
         if not col.isdigit(): 
             invalidInput()
@@ -45,6 +48,7 @@ def show_gb(top, bot):
     '''
     displays gameboard readable to user
     '''
+    print()
     for i in range(3-1,-1,-1):
         for j in range(3):
             print(top.board[j][i],end=' ')
