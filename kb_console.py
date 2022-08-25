@@ -7,16 +7,20 @@ def start_game():
     print("\nWelcome to a very scuffed KnuckleBones game on console\n")
 
     game = kb.KnuckleBones()
-
     lib.firstMove(game)
-    lib.show_gb(game.top, game.bot)
 
-    while True:
+    while not game.boardFull():
+        lib.show_gb(game.top, game.bot)
         lib.current_turn(game)
         dieNum = lib.rollDie()
-        colNum = lib.promptMove()
-        game.place_move(game.turn, colNum, dieNum)
-        lib.show_gb(game.top, game.bot)
+        while True:
+            colNum = lib.promptMove()
+            try:
+                game.place_move(game.turn, colNum, dieNum)
+                break
+            except ValueError: # 0 is not in list of line 34, place_die, full
+                lib.fullColMsg()
+                
 
 # while True
     # prompt move
