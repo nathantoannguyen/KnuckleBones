@@ -19,10 +19,14 @@ def start_game():
         lib.show_gb(game.top, game.bot)
 
 # while True
+    # prompt move
+    # check if move is valid
     # place move
     # checkIfCancelsOut
     # checkifBoardFull
-# TODO: Show gb every time they enter an invalid input stupid mf
+    # if board is full, display final board with score
+# TODO: Show gb again every time they enter an invalid input?
+#       Implement score with showing gb
 
 if __name__ == '__main__':
     start_game()
