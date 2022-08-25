@@ -37,7 +37,7 @@ class GameBoard():
 
     def remove_die(self, colNum: int, dieNum: int):
         '''
-        Updates gameboard by removing die from colNum and dieNum
+        Updates gameboard by removing all of dieNum from colNum
         '''
         for value in self.board[colNum-1][:]:
             if value == dieNum:
