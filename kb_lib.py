@@ -37,7 +37,7 @@ def firstMove(kb):
     Outputs if top or bot is going first
     '''
     person = "Top" if kb.turn == 0 else "Bottom"
-    print(f"{person} board goes first.\n")
+    print(f"{person} board goes first.")
 
 def current_turn(kb):
     person = "Top" if kb.turn == 0 else "Bottom"
