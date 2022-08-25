@@ -17,10 +17,13 @@ def start_game():
             colNum = lib.promptMove()
             try:
                 game.place_move(game.turn, colNum, dieNum)
+                game.remove_die(game.turn, colNum, dieNum)
                 break
             except ValueError: # 0 is not in list of line 34, place_die, full
                 lib.fullColMsg()
-                
+
+# TODO
+# Update score and display with gameboard
 
 # while True
     # prompt move
