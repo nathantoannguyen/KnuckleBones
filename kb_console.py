@@ -1,4 +1,3 @@
-
 import kb
 import kb_lib as lib
 
@@ -13,8 +12,9 @@ def start_game():
     lib.show_gb(game.top, game.bot)
 
     while True:
+        lib.current_turn(game)
         dieNum = lib.rollDie()
-        colNum = lib.promptMove(game)
+        colNum = lib.promptMove()
         game.place_move(game.turn, colNum, dieNum)
         lib.show_gb(game.top, game.bot)
 
