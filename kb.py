@@ -33,16 +33,6 @@ class GameBoard():
         '''
         current_spot = self.board[colNum-1].index(0)
         self.board[colNum-1][current_spot] = dieNum
-
-
-    def remove_die(self, colNum: int, dieNum: int):
-        '''
-        Updates gameboard by removing all of dieNum from colNum
-        '''
-        for value in self.board[colNum-1][:]:
-            if value == dieNum:
-                self.board[colNum-1].remove(dieNum)
-                self.board[colNum-1].append(0)
         
 
 class KnuckleBones():
@@ -67,12 +57,22 @@ class KnuckleBones():
 
     def place_move(self, turn: int, dieNum: int, colNum: int):
         '''
-        Places move in top or bot board depending on turn
+        Places move in top or bot board depending on turn then switches
         '''
-        
         if turn == 0:
             self.top.place_die(dieNum, colNum)
             self.turn = 1 
         if turn == 1:
             self.bot.place_die(dieNum, colNum)
             self.turn = 0
+            
+    def remove_die(self, turn: int, colNum: int, dieNum: int):
+        '''
+        Updates gameboard by removing all of dieNum from colNum of board 
+        turn if dieNum exists
+        '''
+        player = self.top if turn == 0 else self.bot
+        for value in player.board[colNum-1][:]:
+            if value == dieNum:
+                player.board[colNum-1].remove(dieNum)
+                player.board[colNum-1].append(0)
