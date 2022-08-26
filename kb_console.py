@@ -24,7 +24,7 @@ def start_game():
                 game.update_scores()
                 break
             except ValueError: # 0 is not in list of line 34, place_die, full
-                lib.fullColMsg()
+                UI.fullColMsg()
                 
     game.update_scores()
     UI.show_gb(game.top, game.bot)
