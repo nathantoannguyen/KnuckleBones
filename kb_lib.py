@@ -1,15 +1,35 @@
 import random
 
+# UI module
+
 def rollDie() -> int:
+    '''
+    Rolls die
+    '''
     dieNum = random.randint(1,6)
     print(f"You rolled a {dieNum}!\n")
     return dieNum
 
 def invalidInput():
+    '''
+    Informs user their input is not a valid column number
+    '''
     print("Please enter a valid column number of 1, 2, or 3.")
     
 def fullColMsg():
+    '''
+    Informs user that column number input is full 
+    '''
     print("Column is full. Please try placing a die in another column.")
+
+def winner_output(winner: str):
+    '''
+    Prints appropriate winner message based on winner input
+    '''
+    if winner != 'Tie':
+        print(f"{winner} player wins!")
+    else:
+        print("The game ends in a tie!")
 
 def promptMove() -> int:
     '''
@@ -38,13 +58,16 @@ def firstMove(kb):
     print(f"{person} board goes first.")
 
 def current_turn(kb):
+    '''
+    Prints current turn depending on KnuckleBones input
+    '''
     person = "Top" if kb.turn == 0 else "Bottom"
     print(f"It is {person}'s turn.")
 
 
 def show_gb(top, bot):
     '''
-    displays gameboard readable to user
+    Displays gameboard readable to user
     '''
     print(f"\nScore: {top.score}")
     for i in range(3-1,-1,-1):
