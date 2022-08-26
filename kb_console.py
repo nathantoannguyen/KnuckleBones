@@ -18,12 +18,16 @@ def start_game():
             try:
                 game.place_move(game.turn, colNum, dieNum)
                 game.remove_die(game.turn, colNum, dieNum)
+                game.update_scores()
                 break
             except ValueError: # 0 is not in list of line 34, place_die, full
                 lib.fullColMsg()
+                
+    game.update_scores()
+    lib.show_gb(game.top, game.bot)
 
 # TODO
-# Update score and display with gameboard
+# Add UI for game overs and method for checking winner
 
 # while True
     # prompt move
