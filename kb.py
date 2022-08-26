@@ -2,6 +2,9 @@ import random
 
 # Game logic: Gameboard class and KnuckleBones class
 
+class FullColumn(Exception):
+    pass
+
 class GameBoard():
 
     def __init__(self):
@@ -31,6 +34,8 @@ class GameBoard():
         '''
         Updates gameboard with placing die in colNum and dieNum
         '''
+        if 0 not in self.board[colNum-1]:
+            raise FullColumn
         current_spot = self.board[colNum-1].index(0)
         self.board[colNum-1][current_spot] = dieNum
         

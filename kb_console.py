@@ -23,7 +23,7 @@ def start_game():
                 game.remove_die(game.turn, colNum, dieNum)
                 game.update_scores()
                 break
-            except ValueError: # 0 is not in list of line 34, place_die, full
+            except kb.FullColumn: # 0 is not in list of line 34, place_die, full
                 UI.fullColMsg()
                 
     game.update_scores()
