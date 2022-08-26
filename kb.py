@@ -11,7 +11,6 @@ class GameBoard():
         ''' 
         Updates score of board
         '''
-
         total = 0
         for outer in self.board:
             for num in set(outer):
@@ -76,3 +75,10 @@ class KnuckleBones():
             if value == dieNum:
                 player.board[colNum-1].remove(dieNum)
                 player.board[colNum-1].append(0)
+                
+    def update_scores(self):
+        '''
+        Updates scores for both gameboards
+        '''
+        self.top.update_score()
+        self.bot.update_score()
