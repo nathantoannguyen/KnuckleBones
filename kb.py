@@ -1,4 +1,3 @@
-import kb_lib as kb
 import random
 
 # Game logic: Gameboard class and KnuckleBones class
