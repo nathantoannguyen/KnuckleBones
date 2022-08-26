@@ -1,5 +1,3 @@
-
-
 import random
 
 def rollDie() -> int:
@@ -48,7 +46,7 @@ def show_gb(top, bot):
     '''
     displays gameboard readable to user
     '''
-    print()
+    print(f"\nScore: {top.score}")
     for i in range(3-1,-1,-1):
         for j in range(3):
             print(top.board[j][i],end=' ')
@@ -61,4 +59,4 @@ def show_gb(top, bot):
             print(bot.board[j][i],end=' ')
         print()
 
-    print()
+    print(f"Score: {bot.score}\n")
