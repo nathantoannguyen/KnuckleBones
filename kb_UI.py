@@ -31,6 +31,13 @@ def winner_output(winner: str):
     else:
         print("The game is a draw!")
 
+def stats_output(kb):
+    '''
+    Prints stats message
+    '''
+    print(f"\nOut of the {kb.rounds} game(s) played, Top player won {kb.top.wins} time(s) and Bottom player won {kb.bot.wins} time(s).")
+    print(f"You tied {kb.ties} time(s)")
+
 def promptMove() -> int:
     '''
     Prompts current player to enter a valid column number

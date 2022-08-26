@@ -10,6 +10,7 @@ class GameBoard():
     def __init__(self):
         self.board = [[0,0,0],[0,0,0],[0,0,0]]
         self.score = 0
+        self.wins = 0
 
     def update_score(self):
         ''' 
@@ -51,6 +52,8 @@ class KnuckleBones():
         self.top = GameBoard()
         self.bot = GameBoard()
         self.turn = random.randint(0,1) # randomizes if bot or top goes first
+        self.ties = 0
+        self.rounds = 0
     
     def boardFull(self) -> bool:
         '''
@@ -89,11 +92,15 @@ class KnuckleBones():
         
     def winner(self) -> bool:
         '''
-        returns winner based on score
+        Returns winner based on score and updates number of wins and ties
         '''
+        self.rounds += 1
         if self.top.score > self.bot.score:
+            self.top.wins += 1
             return "Top" 
         elif self.top.score < self.bot.score:
+            self.top.wins += 1
             return "Bottom" 
         else: # tie
+            self.ties += 1
             return "Tie"

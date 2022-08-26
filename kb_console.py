@@ -29,6 +29,7 @@ def start_game():
     game.update_scores()
     UI.show_gb(game.top, game.bot)
     UI.winner_output(game.winner())
+    UI.stats_output(game)
 
 if __name__ == '__main__':
     start_game()
