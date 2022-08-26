@@ -29,7 +29,7 @@ def winner_output(winner: str):
     if winner != 'Tie':
         print(f"{winner} player wins!")
     else:
-        print("The game ends in a tie!")
+        print("The game is a draw!")
 
 def promptMove() -> int:
     '''
