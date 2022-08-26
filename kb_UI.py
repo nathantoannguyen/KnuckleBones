@@ -14,13 +14,13 @@ def invalidInput():
     '''
     Informs user their input is not a valid column number
     '''
-    print("Please enter a valid column number of 1, 2, or 3.")
+    print("\nPlease enter a valid column number of 1, 2, or 3.\n")
     
 def fullColMsg():
     '''
     Informs user that column number input is full 
     '''
-    print("Column is full. Please try placing a die in another column.")
+    print("\nColumn is full. Please try placing a die in another column.\n")
 
 def winner_output(winner: str):
     '''
@@ -69,17 +69,28 @@ def show_gb(top, bot):
     '''
     Displays gameboard readable to user
     '''
-    print(f"\nScore: {top.score}")
+    print()
+    indent = "          "
+    print(indent, '---------')
     for i in range(3-1,-1,-1):
+        print(indent, "| ", end='')
         for j in range(3):
             print(top.board[j][i],end=' ')
-        print()
+        print("|", end="")
+        if i == 0:
+            print(f"  Score: {top.score}")
+        else:
+            print()
     
-    print('-----')
+    print(indent, '---------')
     
     for i in range(3):
+        if i != 0:
+            print(indent, "| ", end='')
+        else:
+            print(f"Score: {bot.score: <4}| ", end='')
         for j in range(3):
             print(bot.board[j][i],end=' ')
-        print()
-
-    print(f"Score: {bot.score}\n")
+        print("|")
+    print(indent, '---------')
+    print()

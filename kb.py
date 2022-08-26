@@ -49,7 +49,7 @@ class KnuckleBones():
     
     def boardFull(self) -> bool:
         '''
-        Checks if board is full
+        Checks if any board is full
         '''
         return self.top.fullBoard() or self.bot.fullBoard()
 
