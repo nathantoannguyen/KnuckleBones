@@ -1,6 +1,8 @@
 import kb_lib as kb
 import random
 
+# Game logic: Gameboard class and KnuckleBones class
+
 class GameBoard():
 
     def __init__(self):
@@ -37,18 +39,16 @@ class GameBoard():
 class KnuckleBones():
     
     def __init__(self):
-
         '''
-        Initializes board for both players and (game?)
+        Initializes board for both players 
         0 = Top
         1 = Bot
         '''
-
         self.top = GameBoard()
         self.bot = GameBoard()
         self.turn = random.randint(0,1) # randomizes if bot or top goes first
     
-    def boardFull(self):
+    def boardFull(self) -> bool:
         '''
         Checks if board is full
         '''
@@ -82,3 +82,14 @@ class KnuckleBones():
         '''
         self.top.update_score()
         self.bot.update_score()
+        
+    def winner(self) -> bool:
+        '''
+        returns winner based on score
+        '''
+        if self.top.score > self.bot.score:
+            return "Top" 
+        elif self.top.score < self.bot.score:
+            return "Bottom" 
+        else: # tie
+            return "Tie"
