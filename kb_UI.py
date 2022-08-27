@@ -35,7 +35,7 @@ def stats_output(kb):
     '''
     Prints stats message
     '''
-    print(f"\nOut of the {kb.rounds} game(s) played, Top player won {kb.top.wins} time(s) and Bottom player won {kb.bot.wins} time(s).")
+    print(f"\nOut of the {kb.rounds} game(s) played, Top player won {kb.topwins} time(s) and Bottom player won {kb.botwins} time(s).")
     print(f"You tied {kb.ties} time(s)")
 
 def promptMove() -> int:
@@ -56,6 +56,16 @@ def promptMove() -> int:
             continue
     
         return colNum
+
+def playAgain() -> bool:
+    while True:
+        answer = input("Would you like to play again? (Y/N): \n")
+        if answer.upper() == "Y":
+            return True
+        elif answer.upper() == "N":
+            return False
+        else:
+            print("\nInvalid input! Please enter Y or N")
 
 def firstMove(kb):
     '''

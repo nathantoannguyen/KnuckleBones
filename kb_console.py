@@ -12,7 +12,7 @@ def start_game():
     game = kb.KnuckleBones()
     UI.firstMove(game)
 
-    while not game.boardFull():
+    while True:
         UI.show_gb(game.top, game.bot)
         UI.current_turn(game)
         dieNum = UI.rollDie()
@@ -25,11 +25,16 @@ def start_game():
                 break
             except kb.FullColumn: # 0 is not in list of line 34, place_die, full
                 UI.fullColMsg()
-                
-    game.update_scores()
-    UI.show_gb(game.top, game.bot)
-    UI.winner_output(game.winner())
-    UI.stats_output(game)
+        if game.boardFull():
+            game.update_scores()
+            UI.show_gb(game.top, game.bot)
+            UI.winner_output(game.winner())
+            UI.stats_output(game)
+            if UI.playAgain():
+                game.reset()
+            else:
+                break
+
 
 if __name__ == '__main__':
     start_game()
