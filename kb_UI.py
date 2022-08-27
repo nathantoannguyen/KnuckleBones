@@ -38,7 +38,7 @@ def stats_output(kb):
     divider = "|-----------------------|"
     print()
     print("-" * 25)
-    print("|   GAME STATISTICS   |")
+    print("|    GAME STATISTICS    |")
     print("-" * 25)
     print(f"| HIGH SCORE ({kb.highscore[1]})  | {kb.highscore[0]:>3} |")
     print(divider)
