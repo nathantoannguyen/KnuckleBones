@@ -35,19 +35,21 @@ def stats_output(kb):
     '''
     Prints stats message
     '''
-    divider = "|-------------------|"
+    divider = "|-----------------------|"
     print()
-    print("-" * 21)
-    print("|  GAME STATISTICS  |")
-    print("-" * 21)
-    print(f"| GAMES PLAYED |{kb.rounds:>3} |")
+    print("-" * 25)
+    print("|   GAME STATISTICS   |")
+    print("-" * 25)
+    print(f"| HIGH SCORE ({kb.highscore[1]})  | {kb.highscore[0]:>3} |")
     print(divider)
-    print(f"| TOP WINS     |{kb.topwins:>3} |")
+    print(f"| GAMES PLAYED    | {kb.rounds:>3} |")
     print(divider)
-    print(f"| BOT WINS     |{kb.botwins:>3} |")
+    print(f"| TOP WINS        | {kb.topwins:>3} |")
     print(divider)
-    print(f"| TIES         |{kb.ties:>3} |")
-    print("-" * 21)
+    print(f"| BOT WINS        | {kb.botwins:>3} |")
+    print(divider)
+    print(f"| TIES            | {kb.ties:>3} |")
+    print("-" * 25)
     print()
 
 

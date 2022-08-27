@@ -55,6 +55,7 @@ class KnuckleBones():
         self.ties = 0
         self.topwins = 0
         self.botwins = 0
+        self.highscore = [0, "T"]
     
     def reset(self):
         self.top = GameBoard()
@@ -101,6 +102,7 @@ class KnuckleBones():
         Returns winner based on score and updates number of wins and ties
         '''
         self.rounds += 1
+        self.highscore = max(self.highscore, [self.top.score, "T"], [self.bot.score, "B"])
         if self.top.score > self.bot.score:
             self.topwins += 1
             return "Top" 
