@@ -35,8 +35,21 @@ def stats_output(kb):
     '''
     Prints stats message
     '''
-    print(f"\nOut of the {kb.rounds} game(s) played, Top player won {kb.topwins} time(s) and Bottom player won {kb.botwins} time(s).")
-    print(f"You tied {kb.ties} time(s)")
+    divider = "|-------------------|"
+    print()
+    print("-" * 21)
+    print("|  GAME STATISTICS  |")
+    print("-" * 21)
+    print(f"| GAMES PLAYED |{kb.rounds:>3} |")
+    print(divider)
+    print(f"| TOP WINS     |{kb.topwins:>3} |")
+    print(divider)
+    print(f"| BOT WINS     |{kb.botwins:>3} |")
+    print(divider)
+    print(f"| TIES         |{kb.ties:>3} |")
+    print("-" * 21)
+    print()
+
 
 def promptMove() -> int:
     '''
