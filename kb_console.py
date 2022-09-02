@@ -29,6 +29,7 @@ def start_game():
         if game.boardFull():
             game.update_scores()
             UI.show_gb(game.top, game.bot)
+            UI.show_achievements(game)
             UI.winner_output(game.winner())
             UI.stats_output(game)
             if UI.playAgain():
