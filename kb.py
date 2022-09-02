@@ -60,6 +60,7 @@ class KnuckleBones():
         self.achieve_dt["not_achieved"].append(Achievement("Low Roll", all_vals(1), "Roll all 1's"))
         self.achieve_dt["not_achieved"].append(Achievement("High Roll", all_vals(6), "Roll all 6's"))
         self.achieve_dt["not_achieved"].append(Achievement("High Roll", all_vals(0), "End with all 0's"))
+        #self.achieve_dt["not_achieved"].append(Achievement("Test Achievement", test_achievement_function, "testing ^___^"))
     
     def reset(self):
         self.top = GameBoard()

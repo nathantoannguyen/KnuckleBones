@@ -114,7 +114,7 @@ def show_achievements(kb):
         if ach.achieved(kb):
             ach.unlocked = True
             achievement_output(ach)
-        kb.achieve_dt["achieved"].append(kb.achieve_dt["not_achieved"].pop(index))
+            kb.achieve_dt["achieved"].append(kb.achieve_dt["not_achieved"].pop(index))
 
 def show_gb(top, bot):
     '''

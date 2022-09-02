@@ -16,3 +16,9 @@ def all_vals(value: int):
     def new_func(kb):
         return [[value,value,value],[value,value,value],[value,value,value]] in [kb.top.board, kb.bot.board]
     return new_func
+
+def test_achievement_function(kb):
+    for col in kb.top.board:
+        if 1 in col:
+            return True
+    return False
