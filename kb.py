@@ -51,10 +51,7 @@ class KnuckleBones():
         self.top = GameBoard()
         self.bot = GameBoard()
         self.turn = random.randint(0,1) # randomizes if bot or top goes first
-        self.rounds = 0
-        self.ties = 0
-        self.topwins = 0
-        self.botwins = 0
+        self.stats = {"rounds": 0, "ties": 0, "topwins": 0, "botwins": 0}
         self.highscore = [0, "T"]
     
     def reset(self):
@@ -101,14 +98,14 @@ class KnuckleBones():
         '''
         Returns winner based on score and updates number of wins and ties
         '''
-        self.rounds += 1
+        self.stats["rounds"] += 1
         self.highscore = max(self.highscore, [self.top.score, "T"], [self.bot.score, "B"])
         if self.top.score > self.bot.score:
-            self.topwins += 1
+            self.stats["topwins"] += 1
             return "Top" 
         elif self.top.score < self.bot.score:
-            self.botwins += 1
+            self.stats["botwins"] += 1
             return "Bottom" 
         else: # tie
-            self.ties += 1
+            self.stats["ties"] += 1
             return "Tie"
