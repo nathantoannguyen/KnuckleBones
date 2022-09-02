@@ -1,5 +1,3 @@
-from kb import GameBoard, KnuckleBones
-import kb_UI as UI
 
 class Achievement:
     def __init__(self, name, func, desc):
@@ -15,6 +13,6 @@ def all_vals(value: int):
     '''
     Returns a function that returns True if all spaces in either board are occupied by a specific value.
     '''
-    def new_func(kb: KnuckleBones):
+    def new_func(kb):
         return [[value,value,value],[value,value,value],[value,value,value]] in [kb.top.board, kb.bot.board]
     return new_func
