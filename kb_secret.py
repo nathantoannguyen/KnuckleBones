@@ -1,10 +1,23 @@
 from kb import GameBoard, KnuckleBones
 import kb_UI as UI
 
-def run_achievements(kb):
-    #func_dict = {"Achieved": blah, "Not Achieved": low_roll}
+class Achievement:
+    def __init__(self, name, func):
+        self.name = name
+        self.unlocked = False
+        self.func = func
     
-    pass
+    def achieved(self, kb):
+        if result:= (self.func(kb)):
+            self.unlocked = True
+        return result
+    
+
+def run_achievements(kb):
+    for func in kb.achievements:
+        if func(kb):
+            #show game ui
+            pass
 
 def low_roll(kb: KnuckleBones):
     return [[1,1,1],[1,1,1],[1,1,1]] in [kb.top.board, kb.bot.board]
