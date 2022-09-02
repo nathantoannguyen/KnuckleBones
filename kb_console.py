@@ -10,6 +10,7 @@ def start_game():
     print("\nWelcome to a very scuffed KnuckleBones game on console\n")
 
     game = kb.KnuckleBones()
+    game.create_achievements()
     UI.firstMove(game)
 
     while True:

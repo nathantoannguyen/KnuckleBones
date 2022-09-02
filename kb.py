@@ -1,4 +1,5 @@
 import random
+from kb_secret import *
 
 # Game logic: Gameboard class and KnuckleBones class
 
@@ -53,6 +54,12 @@ class KnuckleBones():
         self.turn = random.randint(0,1) # randomizes if bot or top goes first
         self.stats = {"rounds": 0, "ties": 0, "topwins": 0, "botwins": 0}
         self.highscore = [0, "T"]
+        self.achieve_dt = {"achieved": [], "not_achieved": []}
+    
+    def create_achievements(self):
+        self.achieve_dt["not_achieved"].append(Achievement("Low Roll", all_vals(1), "Roll all 1's"))
+        self.achieve_dt["not_achieved"].append(Achievement("High Roll", all_vals(6), "Roll all 6's"))
+        self.achieve_dt["not_achieved"].append(Achievement("High Roll", all_vals(0), "End with all 0's"))
     
     def reset(self):
         self.top = GameBoard()

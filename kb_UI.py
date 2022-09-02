@@ -31,6 +31,19 @@ def winner_output(winner: str):
     else:
         print("The game is a draw!")
 
+def achievement_output(ach):
+    '''
+    Prints achievement notification
+    '''
+    indent = " " * 4
+    print(indent, "ACHIEVEMENT UNLOCKED!")
+    print(indent, "-" * 21)
+    print(indent, f"| {ach.name:<17} |")
+    print(indent, "|-------------------|")
+    print(indent, f"| {ach.desc:<17} |")
+    print(indent, "-" * 21)
+    print()
+
 def stats_output(kb):
     '''
     Prints stats message
@@ -96,6 +109,12 @@ def current_turn(kb):
     person = "Top" if kb.turn == 0 else "Bottom"
     print(f"It is {person}'s turn.")
 
+def show_achievements(kb):
+    for index, ach in enumerate(kb.achieve_dt["not_achieved"][:]):
+        if ach.achieved(kb):
+            ach.unlocked = True
+            achievement_output(ach)
+        kb.achieve_dt["achieved"].append(kb.achieve_dt["not_achieved"].pop(index))
 
 def show_gb(top, bot):
     '''
@@ -126,3 +145,8 @@ def show_gb(top, bot):
         print("|")
     print(indent, '---------')
     print()
+
+if __name__ == "__main__":
+    pass
+    #achievement output test
+    #achievement_output(Achievement("Low Roll", all_vals(1), "Roll all 1's"))
